@@ -17,7 +17,7 @@ filetype plugin on  " 根据侦测到的不同类型加载对应的插件
 nmap LB 0     " 定义快捷键到行首 / “)” 页尾
 nmap LE $     " 定义快捷键到行尾
 
-vnoremap <Leader>y "+y        " 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <Leader>y "+y            " 设置快捷键将选中文本块复制至系统剪贴板
 nnoremap <Leader>p "+p            " 设置快捷键将系统剪贴板内容粘贴至vim
 
 nnoremap <Leader>q :q<CR>         " 定义快捷键关闭当前分割窗口
@@ -25,273 +25,275 @@ nnoremap <Leader>w :w<CR>         " 定义快捷键保存当前窗口内容
 nnoremap <Leader>WQ :wa<CR>:q<CR> " 定义快捷键保存所有窗口内容并退出 vim
 nnoremap <Leader>Q :qa!<CR>       " 不做任何保存，直接退出 vim
 
-" 设置快捷键遍历子窗口
+  " 设置快捷键遍历子窗口
 nnoremap nw <C-W><C-W>        " 依次遍历
 nnoremap <Leader>lw <C-W>l    " 跳转至右方的窗口
-nnoremap <Leader>hw <C-W>h    " 跳转至方的窗口
+nnoremap <Leader>hw <C-W>h    " 跳转至左方的窗口
 nnoremap <Leader>kw <C-W>k    " 跳转至上方的子窗口
 nnoremap <Leader>jw <C-W>j    " 跳转至下方的子窗口
 
-nmap <Leader>M %              " 定义快捷键在结对符之间跳转
+  nmap <Leader>M %              " 定义快捷键在结对符之间跳转
 
-" <<<=========================================
-
-
-" 让配置变更立即生效
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  " <<<=========================================
 
 
+  " 让配置变更立即生效
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-" >>>================其他===================
-" 其他
+
+
+  " >>>================其他===================
+  " 其他
 
 set incsearch       " 开启实时搜索功能
 set ignorecase      " 搜索时大小写不敏感
 set nocompatible    " 关闭兼容模式
 set wildmenu        " vim 自身命令行模式智能补全
 set mouse=a         " 设置鼠标滚动
-"set mouse=v   " 若要使用鼠标复制内容到剪切板
+  " set mouse=v     " 若要使用鼠标复制内容到剪切板
 
-" set scrolloff=7     " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
-" :se so=7            " 上面配置的简写
+set scrolloff=7     " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+  " :se so=7            " 上面配置的简写
 
-:se so=999          " 总在中间
+  :se so=999          " 总在中间
 
-" <<<=========================================
+  " <<<=========================================
 
 
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>插件安装>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>插件安装>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-" plug 环境设置
-filetype off
-" set rtp+=~/.vim/plugged
-" vim-plug 管理的插件列表必须位于 plug#begin() 和 plug#end() 之间
-" 制定插件安装目录 (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
+  " plug 环境设置
+  filetype off
+  " set rtp+=~/.vim/plugged
+  " vim-plug 管理的插件列表必须位于 plug#begin() 和 plug#end() 之间
+  " 制定插件安装目录 (for Neovim: ~/.local/share/nvim/plugged)
+  call plug#begin('~/.vim/plugged')
 
 
-" >>> 配色方案" 
-" Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-" Plug 'vim-scripts/phd'
+  " >>> 配色方案" 
+  " Plug 'altercation/vim-colors-solarized'
+  Plug 'tomasr/molokai'
+  " Plug 'vim-scripts/phd'
 
 
-" 美化状态栏
-" Plug 'Lokaltog/vim-powerline'
+  " 美化状态栏
+  " Plug 'Lokaltog/vim-powerline'
 
-" 美化状态栏 和 主题
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  " 美化状态栏 和 主题
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-" C++ 语法高亮支持
-" Plug 'octol/vim-cpp-enhanced-highlight'
+  " C++ 语法高亮支持
+  " Plug 'octol/vim-cpp-enhanced-highlight'
 
-" JavaScript 语法 (ES5 and ES6)
-Plug 'othree/yajs.vim'
+  " JavaScript 语法 (ES5 and ES6)
+  Plug 'othree/yajs.vim'
 
-" 支持大多数语言代码高亮
-Plug 'sheerun/vim-polyglot'
+  " 支持大多数语言代码高亮
+  Plug 'sheerun/vim-polyglot'
 
-" 文件搜索
-Plug 'wincent/command-t'
+  " 文件搜索
+  Plug 'wincent/command-t'
 
-" 下面这个插件可取代Command-T 但是现在暂时不支持目录忽略，所以先暂时不用
-" 还有就是安装下载不下来啊
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  " 下面这个插件可取代Command-T 但是现在暂时不支持目录忽略，所以先暂时不用
+  " 还有就是安装下载不下来啊
+  " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-" 相同缩进的代码关联起来
-Plug 'nathanaelkane/vim-indent-guides'
+  " 相同缩进的代码关联起来
+  Plug 'nathanaelkane/vim-indent-guides'
 
-" 我习惯把类的接口和实现分在不同文件中，常有在接口文件（MyClass.h）和实现文件（MyClass.cpp）中来回切换的操作。
-" 你当然可以先分别打开接口文件和实现文件，再手动切换，但效率不高。
-" 我希望，假如在接口文件中，vim 自动帮我找到对应的实现文件，当键入快捷键，在新 buffer 中打开对应实现文件。
-Plug 'derekwyatt/vim-fswitch'
+  " 我习惯把类的接口和实现分在不同文件中，常有在接口文件（MyClass.h）和实现文件（MyClass.cpp）中来回切换的操作。
+  " 你当然可以先分别打开接口文件和实现文件，再手动切换，但效率不高。
+  " 我希望，假如在接口文件中，vim 自动帮我找到对应的实现文件，当键入快捷键，在新 buffer 中打开对应实现文件。
+  Plug 'derekwyatt/vim-fswitch'
 
-" 书签可视化的插件
-Plug 'kshenoy/vim-signature'
+  " 书签可视化的插件
+  Plug 'kshenoy/vim-signature'
 
-" 显示git diff 和 stages/undoes 片段
-Plug 'airblade/vim-gitgutter'
+  " 显示git diff 和 stages/undoes 片段
+  Plug 'airblade/vim-gitgutter'
 
-" 解决中文输入法下面无法使用命令
-Plug 'ybian/smartim'
+  " 解决中文输入法下面无法使用命令
+  Plug 'ybian/smartim'
 
-" 它可以让书签行高亮
-Plug 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+  " 它可以让书签行高亮
+  Plug 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
 
-" 基于标签的标识符列表插件
-Plug 'majutsushi/tagbar'
+  " 基于标签的标识符列表插件
+  Plug 'majutsushi/tagbar'
 
-" 如何自动生成标签并引入
-Plug 'vim-scripts/indexer.tar.gz'
-" 上面插件，依赖下面两个插件
-Plug 'vim-scripts/DfrankUtil'
-Plug 'vim-scripts/vimprj'
+  " 如何自动生成标签并引入
+  Plug 'vim-scripts/indexer.tar.gz'
+  " 上面插件，依赖下面两个插件
+  Plug 'vim-scripts/DfrankUtil'
+  Plug 'vim-scripts/vimprj'
 
-" 上下文插件，例如搜索到关键字，中间缩略，展示一段上下文
-Plug 'dyng/ctrlsf.vim'
+  " 上下文插件，例如搜索到关键字，中间缩略，展示一段上下文
+  Plug 'dyng/ctrlsf.vim'
 
-" 多光标编辑功能
-Plug 'terryma/vim-multiple-cursors'
+  " 多光标编辑功能
+  Plug 'terryma/vim-multiple-cursors'
 
-" 快速开关注释
-Plug 'scrooloose/nerdcommenter'
+  " 快速开关注释
+  Plug 'scrooloose/nerdcommenter'
 
-" ASCII art 风格的注释
-Plug 'vim-scripts/DrawIt'
+  " ASCII art 风格的注释
+  Plug 'vim-scripts/DrawIt'
 
-" 模板补全插件
-Plug 'SirVer/ultisnips'
+  " 模板补全插件
+  Plug 'SirVer/ultisnips'
 
-" 随键而全的、支持模糊搜索的、高速补全的插件
-" YCM 由 google 公司搜索项目组的软件工程师 Strahinja Val Markovic 所开发
-Plug 'Valloric/YouCompleteMe'
+  " 随键而全的、支持模糊搜索的、高速补全的插件
+  " YCM 由 google 公司搜索项目组的软件工程师 Strahinja Val Markovic 所开发
+  Plug 'Valloric/YouCompleteMe'
 
-" 根据类声明自动生成类实现的代码框架
-Plug 'derekwyatt/vim-protodef'
+  " 根据类声明自动生成类实现的代码框架
+  Plug 'derekwyatt/vim-protodef'
 
-" 查看文件列表
-Plug 'scrooloose/nerdtree'
+  " 查看文件列表
+  Plug 'scrooloose/nerdtree'
 
-" 显示多个 buffer 对应的 window
-Plug 'fholgado/minibufexpl.vim'
+  " 显示多个 buffer 对应的 window
+  Plug 'fholgado/minibufexpl.vim'
 
-" 提高HTML和CSS的工作流
-Plug 'mattn/emmet-vim'
+  " 提高HTML和CSS的工作流
+  Plug 'mattn/emmet-vim'
 
-" 快捷键选中 `<>`、`[]`、`{}` 中间的内容
-" 这个与自定义快捷键冲突
-Plug 'gcmt/wildfire.vim'
+  " 快捷键选中 `<>`、`[]`、`{}` 中间的内容
+  " 这个与自定义快捷键冲突
+  Plug 'gcmt/wildfire.vim'
 
-" 让你有机会撤销最近一步或多步操作
-Plug 'sjl/gundo.vim'
+  " 让你有机会撤销最近一步或多步操作
+  Plug 'sjl/gundo.vim'
 
-" 快速移动，两次 `<leader>` 作为前缀键
-Plug 'Lokaltog/vim-easymotion'
+  " 快速移动，两次 `<leader>` 作为前缀键
+  Plug 'Lokaltog/vim-easymotion'
 
-" 编辑 markdown 文档，自动开启 firefox 为你显示 markdown 最终效果
-" Plug 'suan/vim-instant-markdown'
+  " 编辑 markdown 文档，自动开启 firefox 为你显示 markdown 最终效果
+  " Plug 'suan/vim-instant-markdown'
 
-" 中/英输入平滑切换
-" Plug 'lilydjwg/fcitx.vim'
+  " 中/英输入平滑切换
+  " Plug 'lilydjwg/fcitx.vim'
 
-" 语法高亮多种知名JS库
-Plug 'othree/javascript-libraries-syntax.vim'
+  " 语法高亮多种知名JS库
+  Plug 'othree/javascript-libraries-syntax.vim'
 
-" React jsx 语法高亮
-" Plug 'mxw/vim-jsx'
+  " React jsx 语法高亮
+  " Plug 'mxw/vim-jsx'
 
-" 提供快速编写xml/html的能力，如标签自动闭合等
-Plug 'othree/xml.vim'
+  " 提供快速编写xml/html的能力，如标签自动闭合等
+  Plug 'othree/xml.vim'
 
-" 实时显示颜色的功能，如#FFFFFF
-Plug 'cakebaker/scss-syntax.vim'
+  " 实时显示颜色的功能，如#FFFFFF
+  Plug 'cakebaker/scss-syntax.vim'
 
-" CSS3 高亮，包括stylus,Less,Sass
-Plug 'hail2u/vim-css3-syntax'
+  " CSS3 高亮，包括stylus,Less,Sass
+  Plug 'hail2u/vim-css3-syntax'
 
-call plug#end()            " 插件列表结束
-filetype plugin indent on  " 根据侦测到的不同类型加载对应的插件
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  call plug#end()            " 插件列表结束
+  filetype plugin indent on  " 根据侦测到的不同类型加载对应的插件
+  " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-" >>>>>>>>>>
-" 配色方案
-" 
-set background=dark
-" 素雅 solarized
-" Plug 'altercation/vim-colors-solarized'
-" colorscheme solarized
+  " >>>>>>>>>>
+  " 配色方案
+  " 
+  set background=dark
+  " 素雅 solarized
+  " Plug 'altercation/vim-colors-solarized'
+  " colorscheme solarized
 
-" 多彩 molokai
-" Plug 'tomasr/molokai' 
-colorscheme molokai
+  " 多彩 molokai
+  " Plug 'tomasr/molokai' 
+  colorscheme molokai
 
-" 复古 phd
-" Plug 'tomasr/molokai' 
-" colorscheme phd
-" <<<<<<<<<<
+  " 复古 phd
+  " Plug 'tomasr/molokai' 
+  " colorscheme phd
+  " <<<<<<<<<<
 
 
 
-" >>>>>>>>>>
-" 营造专注气氛
+  " >>>>>>>>>>
+  " 营造专注气氛
 
-set gcr=a:block-blinkon0   " 禁止光标闪烁
+  set gcr=a:block-blinkon0   " 禁止光标闪烁
 
-" 禁止显示滚动条
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
+  " 禁止显示滚动条
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=R
 
-" 禁止显示菜单和工具条
-set guioptions-=m
-set guioptions-=T
+  " 禁止显示菜单和工具条
+  set guioptions-=m
+  set guioptions-=T
 
-" 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
-fun! ToggleFullscreen()
-    call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
-endf
-" 全屏开/关快捷键
-map <silent> <F11> :call ToggleFullscreen()<CR>
-"" 启动 vim 时自动全屏
-autocmd VimEnter * call ToggleFullscreen()
+  " 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
+  fun! ToggleFullscreen()
+      call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
+  endf
+  " 全屏开/关快捷键
+  map <silent> <F11> :call ToggleFullscreen()<CR>
+  "" 启动 vim 时自动全屏
+  autocmd VimEnter * call ToggleFullscreen()
 
-" <<<<<<<<<<
+  " <<<<<<<<<<
 
 
 
-" >>>>>>>>>>
-" 辅助信息
- 
-set laststatus=2   " 总是显示状态栏
-set ruler          " 显示光标当前位置
-set number         " 开启行号显示
-                   " 显示绝对行号      set number
-                   " 取消显示绝对行号   set nonumber
-                   " 显示相对行号       set relativenumber
-                   " 取消显示相对行号   set norelativenumber
+  " >>>>>>>>>>
+  " 辅助信息
+   
+  set laststatus=2   " 总是显示状态栏
+  set ruler          " 显示光标当前位置
+  set number         " 开启行号显示
+                     " 显示绝对行号      set number
+                     " 取消显示绝对行号   set nonumber
+                     " 显示相对行号       set relativenumber
+                     " 取消显示相对行号   set norelativenumber
 
-set cursorline    " 高亮显示当前 - 行
-set cursorcolumn  " 高亮显示当前 - 列
-set hlsearch      " 高亮显示搜索结果
-" set nocompatible  " 不要使用vi的键盘模式，而是vim自己的 
-" set backspace=2 " aa
-" set encoding=utf-8
+  set cursorline    " 高亮显示当前 - 行
+  set cursorcolumn  " 高亮显示当前 - 列
+  set hlsearch      " 高亮显示搜索结果
+  set nocompatible  " 不要使用vi的键盘模式，而是vim自己的 
+  set backspace=indent,eol,start " aa
+  " set encoding=utf-8
 
-" 在处理未保存或只读文件的时候，弹出确认 
-set confirm 
+  " 在处理未保存或只读文件的时候，弹出确认 
+  set confirm 
 
-" <<<<<<<<<<
+  " <<<<<<<<<<
 
 
 
-" >>>>>>>>>>
-" 其他美化
+  " >>>>>>>>>>
+  " 其他美化
 
-" 设置 gvim 显示字体
-" set guifont=YaHei\ Consolas\ Hybrid\ 10.5
-set guifont=Liberation\ Mono\ for\ Powerline\ 10 
-" set guifont=Source\ Code\ Pro\ for\ Powerline:h16 
+  " 设置 gvim 显示字体
+  set guifont=YaHei\ Consolas\ Hybrid\ 10.5
+  " set guifont=Liberation\ Mono\ for\ Powerline\ 10 
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h16 
+  set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+  set termencoding=utf-8
+  set encoding=utf-8
 
+  set nowrap " 禁止折行
 
-set nowrap " 禁止折行
 
+  " Plug 'Lokaltog/vim-powerline'
+  " 设置状态栏主题风格
+  " let g:Powerline_colorscheme='solarized256'
+  " let g:Powerline_symbols='fancy'
 
-" Plug 'Lokaltog/vim-powerline'
-" 设置状态栏主题风格
-" let g:Powerline_colorscheme='solarized256'
-" let g:Powerline_symbols='fancy'
 
+  " Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline-themes'
+  " 设置状态栏主题风格
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
 
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" 设置状态栏主题风格
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
-
-let g:airline_powerline_fonts=1
+  let g:airline_powerline_fonts=1
 
 
 " let g:airline_left_sep = '»'
@@ -430,13 +432,13 @@ nnoremap <Leader>ilt :TagbarToggle<CR> " 设置显示／隐藏标签列表子窗
 
 " 设置 ctags 对哪些代码标识符生成标签
 let g:tagbar_type_css = {
-\ 'ctagstype' : 'Css',
-    \ 'kinds'     : [
+        \ 'ctagstype' : 'Css',
+        \ 'kinds'     : [
         \ 'c:classes',
         \ 's:selectors',
         \ 'i:identities'
-    \ ]
-\ }
+        \ ]
+        \ }
 
 " <<<<<<<<<<
 
@@ -695,16 +697,16 @@ let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 
 " vim不指定具体文件打开是，自动使用nerdtree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * NERDTree
+ autocmd StdinReadPre * let s:std_in=1
+ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * NERDTree
 " 打开NERDTree
 wincmd w 
 
 " autocmd VimEnter * wincmd w
 " 光标默认在主窗口
 
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 " vim 退出时直接关闭NERDTree
 
 
