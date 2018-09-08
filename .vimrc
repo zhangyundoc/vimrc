@@ -10,7 +10,6 @@ filetype plugin on  " 根据侦测到的不同类型加载对应的插件
 " <<<================================
 
 
-
 " >>>=========vim 自身（非插件）快捷键============
 " 
 
@@ -146,7 +145,8 @@ set scrolloff=7     " 在上下移动光标时，光标的上方或下方至少�
   " 随键而全的、支持模糊搜索的、高速补全的插件
   " YCM 由 google 公司搜索项目组的软件工程师 Strahinja Val Markovic 所开发
   Plug 'Valloric/YouCompleteMe'
-
+  Plug 'Raimondi/delimitMate'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " 根据类声明自动生成类实现的代码框架
   Plug 'derekwyatt/vim-protodef'
 
@@ -331,16 +331,17 @@ syntax on     " 允许用指定语法高亮配色方案替换默认方案
 " 缩进
 
 filetype indent on  " 自适应不同语言的智能缩进
+set smartindent
 set expandtab       " 将制表符扩展为空格
-set tabstop=2       " 设置编辑时制表符占用空格数
-set shiftwidth=2    " 设置格式化时制表符占用空格数
-set softtabstop=2   " 让 vim 把连续数量的空格视为一个制表符
+set tabstop=4       " 设置编辑时制表符占用空格数
+set shiftwidth=4    " 设置格式化时制表符占用空格数
+set softtabstop=4   " 让 vim 把连续数量的空格视为一个制表符
 
 
 " Plug 'nathanaelkane/vim-indent-guides'
 " 缩进可视化插件 Indent Guides
 " 随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=0
 " 从第二层开始可视化显示缩进
 let g:indent_guides_start_level=2
 " 色块宽度
